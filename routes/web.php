@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use Laravel\Fortify\Http\Controllers\RegisteredUserController;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->name('dashboard')->middleware('auth');
-// Route::controller('users', [UserController::class]);
+
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/user', function () {
+        return view('user.user-index');
+    });
+});
+
+Route::prefix('admin')->group(function () {
+    Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('admin.login');
+    Route::get('/register', [RegisteredUserController::class, 'create'])->name('admin.register');
+    Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+    Route::post('/register', [RegisteredUserController::class, 'store']);
+});

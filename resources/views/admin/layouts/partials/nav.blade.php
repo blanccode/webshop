@@ -1,3 +1,4 @@
+
 <!-- Topnav -->
             <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
                 <div class="container-fluid">
@@ -214,12 +215,8 @@
                                         
                                         <div class="media-body  ml-2  d-none d-lg-block">
                                             <span>
-                                            {{-- {{ Auth::user()->name }} --}}
-                                                {{-- @foreach ($admins as $admin) --}}
                                                     <h1>
-
                                                     </h1>
-                                                {{-- @endforeach --}}
                                             </span>
                                         </div>
                                     </div>

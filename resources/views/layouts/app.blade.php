@@ -7,26 +7,29 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/argon.min.css" type="text/css">
-    <link href="/assets/css/nucleo.css" rel="stylesheet">
-    {{-- <link rel="stylesheet" href=" {{mix ('css/style.css')}}"> --}}
-    <link rel="stylesheet" href="/assets/nucleo/css/nucleo.css" type="text/css">
-    <script defer src="assets/js/app.js"></script>
-
-    <script defer src="{{ URL::asset('assets/js/app.js') }}"></script>
+    @section('styles')
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        <link href="{{asset('css/app.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/css/argon.min.css" type="text/css">
+        <link href="/assets/css/nucleo.css" rel="stylesheet">
+        {{-- <link rel="stylesheet" href=" {{mix ('css/style.css')}}"> --}}
+        <link rel="stylesheet" href="/assets/nucleo/css/nucleo.css" type="text/css">
+        <script defer src="assets/js/app.js"></script>
+        
+        <script defer src="{{ URL::asset('assets/js/app.js') }}"></script>
+    @endsection
+    @yield('styles')
+    
 
     
       

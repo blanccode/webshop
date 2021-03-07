@@ -53,10 +53,10 @@
 
                             {{-- //////////// FORM starts here   /////////// --}}
                             
-                            <form method="POST" action="{{ route('admin.register') }}">
+                            <form method="POST"  action="{{ route('admin.register') }}">
                                     @csrf
 
-                                    {{-- <div class="form-group">
+                                    <div class="form-group">
                                         <div class="input-group input-group-merge input-group-alternative mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
@@ -64,7 +64,7 @@
 
                                             <input id="name" type="text"
                                                 class="form-control @error('name') is-invalid @enderror" placeholder="Name"
-                                                name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                                name="admin_name" value="{{ old('admin_name') }}" required autocomplete="name" autofocus>
 
                                             @error('name')
                                             <span class="invalid-feedback" role="alert">
@@ -72,7 +72,7 @@
                                             </span>
                                             @enderror
                                         </div>
-                                    </div> --}}
+                                    </div>
 
                                     <div class="form-group">
                                         <div class="input-group input-group-merge input-group-alternative mb-3">
