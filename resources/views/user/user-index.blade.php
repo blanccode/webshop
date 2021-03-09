@@ -98,7 +98,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <!-- Avatar -->
-                                                <img alt="Image placeholder" src="../assets/img/theme/team-3.jpg"
+                                                <img alt="Image placeholder" src=""
                                                     class="avatar rounded-circle">
                                             </div>
                                             <div class="col ml--2">
@@ -214,7 +214,7 @@
                                 aria-expanded="false">
                                 <div class="media align-items-center">
                                     <span class="avatar avatar-sm rounded-circle">
-                                        <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg">
+                                        <img alt="" src="">
                                     </span>
                                     <div class="media-body  ml-2  d-none d-lg-block">
                                         <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
@@ -255,7 +255,7 @@
         <!-- Header -->
         <!-- Header -->
         <div class="header pb-6 d-flex align-items-center"
-            style="min-height: 500px; background-image: url(../assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+            style="min-height: 500px; background-image: ">
             <!-- Mask -->
             <span class="mask bg-gradient-default opacity-8"></span>
             <!-- Header container -->
@@ -280,7 +280,7 @@
                             <div class="col-lg-3 order-lg-2">
                                 <div class="card-profile-image">
                                     <a href="#">
-                                        <img src="../assets/img/theme/team-4.jpg" class="rounded-circle">
+                                        <img src="" class="rounded-circle">
                                     </a>
                                 </div>
                             </div>

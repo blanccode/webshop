@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use App\Models\User;
+use App\Models\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Cookie;
 
 class DashboardController extends Controller
 {
@@ -19,15 +23,48 @@ class DashboardController extends Controller
         $this->middleware('role');
     }
 
-    public function index()
-    {   $roles = Role::all();
+    public function index(Request $request, View $view ,Response $response)
+    {
+
+        //  $routeCollection = collect(Route::getRoutes());
+
+        // $uriArray = [];
+
+        // foreach ($routeCollection as $route) {
+        //     $uris = $route->uri();
+
+        //     array_push($uriArray, $uris);
+        // }
+        // foreach ($uriArray as $item) {
+        //     echo $item;
+        // }
+        // dd($uriArray);
+
+        if (Cookie::get('view-session') == '') {
+            Cookie::queue(Cookie::make('view-session', '1', 1));
+            $view->incrementViewCount();
+            
+        }
+
+
+        // $uriArray = [];
+
+        // $routeCollection->map(function ($route) {
+        //    $uris = $route->uri();
+
+        //     array_push($uriArray, $uris);
+
+        // });
+        // print_r($uriArray);
+
+
+        $roles = Role::all();
         $users = User::all()->where('role_id', 1);
         foreach ($users as $user) {
             $user->roles()->attach($roles);
-            
         }
-       
-        return view('admin.dashboard',compact('users'));
+
+        return view('admin.dashboard', compact('users'));
     }
 
     /**

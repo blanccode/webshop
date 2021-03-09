@@ -34,7 +34,7 @@ class CreateNewUser implements CreatesNewUsers
             'admin_name' => ['nullable'],
             'password' => $this->passwordRules(),
         ])->validate();
-
+            
         $url = request()->path();
         
         if ($validatedInput && $url === 'admin/register') {

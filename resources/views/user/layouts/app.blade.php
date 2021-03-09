@@ -29,7 +29,7 @@
         </style>
     </head>
 
-    @include('layouts.partials.auth-nav')
+    {{-- @include('layouts.partials.auth-nav') --}}
     <body class="g-sidenav-hidden ">
         <main>
             
