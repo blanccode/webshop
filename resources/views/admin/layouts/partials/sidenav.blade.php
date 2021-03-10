@@ -24,9 +24,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                {{-- <a class="nav-link" href="{{ route('profiles') }}"> --}}
+                                <a class="nav-link" href="{{ route('dashboard.users') }}">
                                     <i class="ni ni-single-02 text-yellow"></i>
-                                    <span class="nav-link-text">Profiles</span>
+                                    <span class="nav-link-text">Users</span>
                                 </a>
                             </li>
                             <li class="nav-item">

@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\View;
+use App\Repositories\RoleRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Cookie;
 
@@ -18,53 +20,29 @@ class DashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct()
+    public function __construct(UserRepository $userRepository, RoleRepository $roleRepository)
     {
         $this->middleware('role');
+        $this->userRepository = $userRepository;
+        $this->roleRepository = $roleRepository;
     }
 
     public function index(Request $request, View $view ,Response $response)
     {
 
-        //  $routeCollection = collect(Route::getRoutes());
+        $roles = $this->roleRepository->all();
+        $admin = $this->userRepository->getAdmin();
+        $users = $this->userRepository->all();
 
-        // $uriArray = [];
-
-        // foreach ($routeCollection as $route) {
-        //     $uris = $route->uri();
-
-        //     array_push($uriArray, $uris);
-        // }
-        // foreach ($uriArray as $item) {
-        //     echo $item;
-        // }
-        // dd($uriArray);
-
-        if (Cookie::get('view-session') == '') {
-            Cookie::queue(Cookie::make('view-session', '1', 1));
-            $view->incrementViewCount();
-            
-        }
-
-
-        // $uriArray = [];
-
-        // $routeCollection->map(function ($route) {
-        //    $uris = $route->uri();
-
-        //     array_push($uriArray, $uris);
-
-        // });
-        // print_r($uriArray);
-
-
-        $roles = Role::all();
-        $users = User::all()->where('role_id', 1);
+        $totalUsers = 0;
         foreach ($users as $user) {
+            $totalUsers++;
             $user->roles()->attach($roles);
         }
+        $totalUsers -= 1;
+        $totalViews = $view->addAllViews();
 
-        return view('admin.dashboard', compact('users'));
+        return view('admin.dashboard', compact('totalUsers', 'totalViews'));
     }
 
     /**

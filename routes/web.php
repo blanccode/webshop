@@ -16,22 +16,27 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 |
 */
 
+Route::middleware(['view-counter'])->group(function () {
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-Route::group(['middleware' => 'auth'], function() {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/user', function () {
-        return view('user.user-index');
+    Route::get('/', function () {
+        return view('welcome');
     });
-});
+    Route::get('/dashboard/users', function () {
+        return view('admin.user-profiles');
+    })->name('dashboard.users');
+    
 
-Route::prefix('admin')->group(function () {
-    Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('admin.login');
-    Route::get('/register', [RegisteredUserController::class, 'create'])->name('admin.register');
-    Route::post('/login', [AuthenticatedSessionController::class, 'store']);
-    Route::post('/register', [RegisteredUserController::class, 'store']);
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/user', function () {
+            return view('user.user-index');
+        });
+    });
+
+    Route::prefix('admin')->group(function () {
+        Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('admin.login');
+        Route::get('/register', [RegisteredUserController::class, 'create'])->name('admin.register');
+        Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+        Route::post('/register', [RegisteredUserController::class, 'store']);
+    });
 });

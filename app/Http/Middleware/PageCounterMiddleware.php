@@ -3,8 +3,10 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Models\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Cookie;
 
 class PageCounterMiddleware
 {
@@ -29,9 +31,12 @@ class PageCounterMiddleware
         //     array_push($uriArray, $uris);
         // }
         // dd($uriArray);
-
-        $request->cookie()->get();
-
+        if (Cookie::get('view-session') == '') {
+            Cookie::queue(Cookie::make('view-session', '1', 30));
+            $view = new View;
+            $view->incrementViewCount();
+        }
+        
         return $next($request);
     }
 }

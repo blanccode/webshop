@@ -9,9 +9,21 @@ class View extends Model
 {
     use HasFactory;
 
-    public function incrementViewCount()
+    public static function incrementViewCount()
     {
         $this->views++;
-        return $this->save();
+        $this->save();
+        return;
+    }
+
+    public static function addAllViews() {
+        $views = View::all();
+
+        $viewCount = 0;
+        foreach ($views as $view) {
+            $viewCount++;
+            
+        }
+        return $viewCount;
     }
 }

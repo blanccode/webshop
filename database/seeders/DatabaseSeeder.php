@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\View;
 use Illuminate\Database\Seeder;
+use Database\Seeders\AdminSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(10)->create();
+        View::factory(10)->create();
+
+        $this->call([
+            AdminSeeder::class,
+        ]);
     }
 }
