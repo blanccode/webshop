@@ -42,9 +42,10 @@ class DashboardController extends Controller
         $totalUsers -= 1;
 
         $totalViews = $view->addAllViews();
-        $viewsPercentage = $view->calcIncrease();
+        $viewsPercentage = $view->calcViewsIncrease();
 
-        $usersPercentage =  $user->calcUsersIncrease();
+        $usersPercentage = $user->calcUsersIncrease();
+        // dd($usersPercentage);
         // $time = Carbon::now()->subMonth(1);
         // $view->created_at = $time;
         // $view->save();
@@ -52,7 +53,7 @@ class DashboardController extends Controller
         // $views->created_at->now()->subMonth();
         // $views->save();
 
-        return view('admin.dashboard', compact('totalUsers', 'totalViews', 'viewsPercentage','admin'));
+        return view('admin.dashboard', compact('totalUsers', 'totalViews', 'viewsPercentage','admin', 'usersPercentage'));
     }
 
     /**

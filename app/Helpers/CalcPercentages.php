@@ -9,9 +9,8 @@ use Carbon\Carbon;
 class CalcPercentages {
 
 
-    public static function calcIncreaseSinceMonth($pastViews, $currentViews)
+    public static function calcIncrease($pastViews, $currentViews)
     {
-        // $increase = self::getViews() - self::getViewsLastMonth();
         $increase = $currentViews - $pastViews;
 
         $increase = $increase / $pastViews * 100;
@@ -37,21 +36,14 @@ class CalcPercentages {
     }
 
     public static function getLastMonth($models) : int
-    {   
+    {
+        $model = $models->whereDate('created_at', now()->subMonth())->get();
+        $viewsLastMonth = 0;
 
-        $models = $models->whereDate('created_at', now()->subMonth())->get();
-        $lastMonth = 0;
-            dd($models);
-
-        foreach ($models as $model) {
-
-            $lastMonth++;
-
+        foreach ($model as $model) {
+            $viewsLastMonth++;
         }
-
-
-
-        return $lastMonth;
+        return $viewsLastMonth;
     }
 
 

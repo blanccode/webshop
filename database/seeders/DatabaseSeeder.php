@@ -15,11 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
-        View::factory(10)->create();
+        \App\Models\User::factory(random_int(1, 20))->create();
+        View::factory(random_int(1, 20))->create();
 
         $this->call([
             AdminSeeder::class,
+            ViewSeeder::class,
         ]);
     }
 }

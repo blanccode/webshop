@@ -40,10 +40,10 @@
                                         </div>
                                         <p class="mt-3 mb-0 text-sm">
                                             @if ($viewsPercentage >= 0 )
-                                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{$viewsPercentage}}%</span>
+                                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{number_format($viewsPercentage, 2)}}%</span>
 
                                             @else
-                                                <span class="text-warning mr-2"><i class="fa fa-arrow-down"></i> {{$viewsPercentage}}%</span>
+                                                <span class="text-warning mr-2"><i class="fa fa-arrow-down"></i> {{number_format($viewsPercentage, 2)}}%</span>
                                             @endif
                                             <span class="text-nowrap">Since last month</span>
                                         </p>
@@ -67,7 +67,12 @@
                                             </div>
                                         </div>
                                         <p class="mt-3 mb-0 text-sm">
-                                            {{-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>{{$usersPercentage}}%</span> --}}
+                                            @if ($usersPercentage >= 0 )
+                                            <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{number_format($usersPercentage, 2)}}%</span>
+                                            
+                                            @else
+                                            <span class="text-warning mr-2"><i class="fa fa-arrow-down"></i> {{number_format($usersPercentage, 2)}}%</span>
+                                            @endif
                                             <span class="text-nowrap">Since last month</span>
                                         </p>
                                     </div>
