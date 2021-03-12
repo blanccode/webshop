@@ -1,6 +1,6 @@
 
 <!-- Topnav -->
-            <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+            <nav class="navbar navbar-top navbar-expand bg-white border-bottom">
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Search form -->
@@ -22,7 +22,7 @@
                         <ul class="navbar-nav align-items-center  ml-md-auto ">
                             <li class="nav-item d-xl-none">
                                 <!-- Sidenav toggler -->
-                                <div class="pr-3 sidenav-toggler sidenav-toggler-dark active" data-action="sidenav-pin"
+                                <div class="pr-3 sidenav-toggler sidenav-toggler active" data-action="sidenav-pin"
                                     data-target="#sidenav-main">
                                     <div class="sidenav-toggler-inner">
                                         <i class="sidenav-toggler-line"></i>
@@ -210,8 +210,12 @@
                                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                     <div class="media align-items-center">
-                                        <span class="avatar avatar-sm rounded-circle">
-                                        </span>
+                                      
+                                            <span class="  ">
+                                                {{$admin->admin_name}}
+                                            </span>
+                                        
+                                        
                                         
                                         <div class="media-body  ml-2  d-none d-lg-block">
                                             <span>

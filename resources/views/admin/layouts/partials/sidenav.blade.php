@@ -3,7 +3,7 @@
                 style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
         <!-- Sidenav -->
-        <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white"
+        <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light  bg-default bg-custom"
             id="sidenav-main">
             <div class="scrollbar-inner">
                 <!-- Brand -->
@@ -19,49 +19,49 @@
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link active" href="{{ route('dashboard') }}">
-                                    <i class="ni ni-tv-2 text-primary"></i>
+                                    <i class="ni ni-tv-2 "></i>
                                     <span class="nav-link-text">Dashboard</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('dashboard.users') }}">
-                                    <i class="ni ni-single-02 text-yellow"></i>
+                                    <i class="ni ni-single-02 "></i>
                                     <span class="nav-link-text">Users</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="examples/icons.html">
-                                    <i class="ni ni-planet text-orange"></i>
+                                <a class="nav-link" href="">
+                                    <i class="ni ni-planet "></i>
                                     <span class="nav-link-text">Amazon</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="examples/map.html">
-                                    <i class="ni ni-pin-3 text-primary"></i>
+                                    <i class="ni ni-pin-3 "></i>
                                     <span class="nav-link-text">Google</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="examples/tables.html">
-                                    <i class="ni ni-bullet-list-67 text-default"></i>
+                                    <i class="ni ni-bullet-list-67 "></i>
                                     <span class="nav-link-text">Tables</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="examples/login.html">
-                                    <i class="ni ni-key-25 text-info"></i>
+                                    <i class="ni ni-key-25"></i>
                                     <span class="nav-link-text">Login</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="examples/register.html">
-                                    <i class="ni ni-circle-08 text-pink"></i>
+                                    <i class="ni ni-circle-08 "></i>
                                     <span class="nav-link-text">Register</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="examples/upgrade.html">
-                                    <i class="ni ni-send text-dark"></i>
+                                    <i class="ni ni-send "></i>
                                     <span class="nav-link-text">Upgrade</span>
                                 </a>
                             </li>
@@ -99,10 +99,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active active-pro" href="examples/upgrade.html">
-                                    <i class="ni ni-send text-dark"></i>
-                                    <span class="nav-link-text">Upgrade to PRO</span>
-                                </a>
+                                
                             </li>
                         </ul>
                     </div>

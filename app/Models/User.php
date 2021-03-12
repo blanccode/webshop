@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Role;
+use App\Helpers\CalcPercentages;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -24,6 +25,7 @@ class User extends Authenticatable
         'password',
         'role_id',
         'dev_access',
+        'created_at'
     ];
 
     /**
@@ -48,4 +50,32 @@ class User extends Authenticatable
     public function roles() {
         return $this->belongsToMany(Role::class);
     }
+
+    public static function calcIncreaseSinceMonth($pastViews, $currentViews)
+    {
+        // $increase = self::getViews() - self::getViewsLastMonth();
+        $increase = $currentViews - $pastViews;
+
+        $increase = $increase / $pastViews * 100;
+
+        return number_format($increase, 2);
+    }
+
+    public function calcUsersIncrease() :int
+    {
+     
+        return CalcPercentages::calcIncreaseSinceMonth($this->getUsersLastMonth(), $this->getCurrentUsers());
+    }
+
+  
+    public function getCurrentUsers(): int
+    {
+        return CalcPercentages::getCurrent($this);
+    }
+
+    public function getUsersLastMonth(): int
+    {
+        return CalcPercentages::getLastMonth($this);
+    }
+    
 }

@@ -11,6 +11,7 @@ use Illuminate\Http\Response;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Cookie;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -27,9 +28,8 @@ class DashboardController extends Controller
         $this->roleRepository = $roleRepository;
     }
 
-    public function index(Request $request, View $view ,Response $response)
+    public function index(Request $request, View $view ,Response $response, User $user)
     {
-
         $roles = $this->roleRepository->all();
         $admin = $this->userRepository->getAdmin();
         $users = $this->userRepository->all();
@@ -40,9 +40,19 @@ class DashboardController extends Controller
             $user->roles()->attach($roles);
         }
         $totalUsers -= 1;
-        $totalViews = $view->addAllViews();
 
-        return view('admin.dashboard', compact('totalUsers', 'totalViews'));
+        $totalViews = $view->addAllViews();
+        $viewsPercentage = $view->calcIncrease();
+
+        $usersPercentage =  $user->calcUsersIncrease();
+        // $time = Carbon::now()->subMonth(1);
+        // $view->created_at = $time;
+        // $view->save();
+        // $views = new View;
+        // $views->created_at->now()->subMonth();
+        // $views->save();
+
+        return view('admin.dashboard', compact('totalUsers', 'totalViews', 'viewsPercentage','admin'));
     }
 
     /**

@@ -18,7 +18,11 @@ class UserRepository extends BaseRepository implements UserInterface
 
     public function getAdmin()
     {
-        return User::all()->where('role_id', 1);
+        $admin =  User::all()->where('role_id', 1);
+
+        foreach ($admin as $admin) {
+            return $admin;
+        }
         
     }
 
