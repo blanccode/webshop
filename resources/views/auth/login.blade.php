@@ -5,6 +5,7 @@
   <!-- Navbar -->
   @if (request()->is('admin/login'))
     @include('admin.login')  
+  
   @else
       <!-- Main content -->
       <div class="main-content ">
@@ -71,7 +72,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                         </div>
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                        <input placeholder="Password" id="password" type="password" class="form-control @error('password') is-invalid @enderror"
                           name="password" required autocomplete="current-password">
                         @error('password')
                         <span class="invalid-feedback" role="alert">
@@ -137,9 +138,8 @@
           </div>
         </div>
       </footer>
-      
-      @endsection
   @endif
+      @endsection
   
 
 

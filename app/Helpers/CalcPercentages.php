@@ -9,11 +9,11 @@ use Carbon\Carbon;
 class CalcPercentages {
 
 
-    public static function calcIncrease($pastViews, $currentViews)
+    public static function calcIncrease($pastNum, $currentNum)
     {
-        $increase = $currentViews - $pastViews;
+        $increase = $currentNum - $pastNum;
 
-        $increase = $increase / $pastViews * 100;
+        $increase = $increase / $pastNum * 100;
 
         return number_format($increase, 2);
     }
@@ -23,28 +23,57 @@ class CalcPercentages {
     //     return self::calcIncreaseSinceMonth(self::getLastMonth(), self::getCurrent());
     // }
 
-    public static function getCurrent($models) : int
+    public static function getCurrentMonth($models) : int
     {
         $model = $models->whereYear('created_at', now()->year)
             ->whereMonth('created_at', now()->month)
             ->get();
-        $viewsMonth = 0;
+        $getMonth = 0;
         foreach ($model as $model) {
-            $viewsMonth++;
+            $getMonth++;
         }
-        return $viewsMonth;
+        return $getMonth;
     }
 
     public static function getLastMonth($models) : int
     {
         $model = $models->whereDate('created_at', now()->subMonth())->get();
-        $viewsLastMonth = 0;
+        $getLastMonth = 0;
 
         foreach ($model as $model) {
-            $viewsLastMonth++;
+            $getLastMonth++;
         }
-        return $viewsLastMonth;
+        return $getLastMonth;
     }
+    
+    
+    public static function getSinceLastWeak($models) : int
+    {
+        $date = \Carbon\Carbon::now()->startOfWeek() and Carbon::now()->endOfWeek();
+        $model = $models->whereBetween('created_at', [Carbon::now()->subWeek()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+
+        $int = 0;
+
+        foreach ($model as $model) {
+            $int++;
+        }
+        return $int;
+
+    } 
+    public static function getCurrentWeak($models) :int
+    {
+        $date = \Carbon\Carbon::now()->startOfWeek() and Carbon::now()->endOfWeek();
+        $model = $models->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+
+        $int = 0;
+
+        foreach ($model as $model) {
+            $int++;
+        }
+        return $int;
+
+
+    } 
 
 
 

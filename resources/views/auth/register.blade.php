@@ -125,7 +125,7 @@
     
                     <div class="text-muted font-italic">
                         <small>password strength:
-                            <span class="text-success font-weight-700">strong</span>
+                            <span class="text-success font-weight-700"></span>
                         </small>
                     </div>
     
@@ -153,9 +153,8 @@
     </div>
     </div>
     
-    
-    @endsection
-@endif
+@endif 
+@endsection
                 
             
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
-class View extends Model
+class View extends Model 
 {
     use HasFactory;
 
@@ -33,22 +33,16 @@ class View extends Model
         }
         return $viewCount;
     }
-    public function calcViewsIncrease() {
-        // $this->getViews();
-        // $this->getViewsLastMonth();
-        return CalcPercentages::calcIncrease($this->getViewsLastMonth(),$this->getViews());
+    public function calcViewsIncrease() 
+    {
+        return CalcPercentages::calcIncrease(CalcPercentages::getLastMonth($this), CalcPercentages::getCurrentMonth($this));
     }
 
-    // public static function calcIncrease() {
-    //    return self::calcIncreaseSinceMonth(self::getViewsLastMonth(), self::getViews());
-    // }
-
-    public function getViews() : int {
-        return CalcPercentages::getCurrent($this);
-    }
-
-    public function getViewsLastMonth() : int {
-       return CalcPercentages::getLastMonth($this);
+    
+    public function calcViewsSinceWeak() : int 
+    {
+        // return CalcPercentages::calcIncrease(CalcPercentages::getSinceLastWeak($this) , CalcPercentages::getCurrentWeak($this));
+        return 3;
     }
     
 

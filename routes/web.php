@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardUsersController;
+use App\Http\Livewire\IncreaseCalc;
 use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
@@ -21,13 +23,13 @@ Route::middleware(['view-counter'])->group(function () {
     Route::get('/', function () {
         return view('welcome');
     });
-    Route::get('/dashboard/users', function () {
-        return view('admin.user-profiles');
-    })->name('dashboard.users');
+
     
 
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::post('/dashboard', [IncreaseCalc::class]);
+        Route::get('/dashboard/users', [DashboardUsersController::class, 'index'])->name('dashboard.users');
         Route::get('/user', function () {
             return view('user.user-index');
         });

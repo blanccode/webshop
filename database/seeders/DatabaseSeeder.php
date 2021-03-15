@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Sale;
+use App\Models\User;
 use App\Models\View;
 use Illuminate\Database\Seeder;
 use Database\Seeders\AdminSeeder;
+use Carbon\Carbon;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,12 +19,34 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(random_int(1, 20))->create();
-        View::factory(random_int(1, 20))->create();
+        User::factory(random_int(1, 400))->create();
+        User::factory(random_int(1, 400))->state([
+            'created_at' => now()->subMonth(),
+        ])->create();
+        User::factory(10)->state([
+            'created_at' => today()->subDays(8),
+        ])->create();
+        User::factory(random_int(1, 400))->state([
+            'created_at' => now()->subMonth(),
+        ])->create();
+        View::factory(20)->create();
+        View::factory(20)->state([
+            'created_at' => now()->subMonth(),
+        ])->create();
+        View::factory(10)->state([
+            'created_at' => today()->subDays(8),
+        ])->create();
+        View::factory(10)->state([
+            'created_at' => today()->subDays(9),
+        ])->create();
+        Sale::factory(random_int(1, 300))->create();
+        Sale::factory(random_int(1, 300))->state([
+            'created_at' => now()->subMonth(),
+        ])->create();
 
         $this->call([
             AdminSeeder::class,
-            ViewSeeder::class,
+            // ViewSeeder::class,
         ]);
     }
 }

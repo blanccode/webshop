@@ -1,6 +1,6 @@
 
 <!-- Topnav -->
-            <nav class="navbar navbar-top navbar-expand bg-white border-bottom">
+            <nav class="navbar navbar-top navbar-expand bg-white border-bottom bottom-shadow">
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Search form -->
@@ -212,7 +212,7 @@
                                     <div class="media align-items-center">
                                       
                                             <span class="  ">
-                                                {{$admin->admin_name}}
+                                                {{$admin->admin_name ?? ''}}
                                             </span>
                                         
                                         

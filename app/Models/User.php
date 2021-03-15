@@ -49,6 +49,7 @@ class User extends Authenticatable
     public function roles() {
         return $this->belongsToMany(Role::class);
     }
+   
 
     public function calcUsersIncrease() :int
     {
@@ -59,7 +60,7 @@ class User extends Authenticatable
   
     public function getCurrentUsers(): int
     {
-       return CalcPercentages::getCurrent($this) -1; 
+       return CalcPercentages::getCurrentMonth($this) -1; 
     }
 
     public function getUsersLastMonth(): int

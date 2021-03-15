@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class AdminSeeder extends Seeder
 {
@@ -14,6 +16,13 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(1)->create();
+        User::factory(1)->create([
+            'name' => 'blanc',
+            'admin_name' => 'blanc',
+            'email' => 'blanccodes@gmail.com',
+            'password' => Hash::make('mazzaka12'),
+            'role_id' => 1,
+            'remember_token' => Str::random(10),
+        ]);
     }
 }

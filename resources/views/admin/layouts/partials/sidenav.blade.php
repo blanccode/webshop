@@ -9,7 +9,7 @@
                 <!-- Brand -->
                 <div class="sidenav-header  align-items-center">
                     <a class="navbar-brand" href="javascript:void(0)">
-                        <img src="assets/img/blanc-logo.png" class="navbar-brand-img" alt="...">
+                        <img src="{{asset('assets/img/brand/blanc-logo.png')}}" class="navbar-brand-img" alt="...">
                     </a>
                 </div>
                 <div class="navbar-inner">
@@ -18,13 +18,13 @@
                         <!-- Nav items -->
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('dashboard') }}">
+                                <a class="nav-link {{request()->segment(2) == '' ? 'active' : '' }}" href="{{ route('dashboard') }}">
                                     <i class="ni ni-tv-2 "></i>
                                     <span class="nav-link-text">Dashboard</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('dashboard.users') }}">
+                                <a class="nav-link {{request()->segment(2) == 'users' ? 'active' : '' }}" href="{{ route('dashboard.users') }}">
                                     <i class="ni ni-single-02 "></i>
                                     <span class="nav-link-text">Users</span>
                                 </a>
@@ -36,31 +36,31 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="examples/map.html">
+                                <a class="nav-link" href="">
                                     <i class="ni ni-pin-3 "></i>
                                     <span class="nav-link-text">Google</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="examples/tables.html">
+                                <a class="nav-link" href="">
                                     <i class="ni ni-bullet-list-67 "></i>
                                     <span class="nav-link-text">Tables</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="examples/login.html">
+                                <a class="nav-link" href="">
                                     <i class="ni ni-key-25"></i>
                                     <span class="nav-link-text">Login</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="examples/register.html">
+                                <a class="nav-link" href="">
                                     <i class="ni ni-circle-08 "></i>
                                     <span class="nav-link-text">Register</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="examples/upgrade.html">
+                                <a class="nav-link" href="">
                                     <i class="ni ni-send "></i>
                                     <span class="nav-link-text">Upgrade</span>
                                 </a>

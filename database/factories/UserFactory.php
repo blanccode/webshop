@@ -5,6 +5,8 @@ namespace Database\Factories;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
+
 
 class UserFactory extends Factory
 {
@@ -20,8 +22,19 @@ class UserFactory extends Factory
      *
      * @return array
      */
+
+    // public function suspended()
+    // {
+    //     return $this->state(function (array $attributes) {
+    //         return [
+    //             'created_at' => now()->subMonth(),
+    //         ];
+    //     });
+    // }
+
     public function definition()
     {
+        
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
