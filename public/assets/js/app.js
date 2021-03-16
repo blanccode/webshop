@@ -1,4 +1,5 @@
 
+/////////// REGISTER PASSWORD CHECK//////////////
 
 const strengthText = document.querySelector('.text-success');
 const pwInput = document.querySelector('#password')
@@ -41,3 +42,4 @@ pwInput.addEventListener('keyup', function (e) {
     }
 
 });
+

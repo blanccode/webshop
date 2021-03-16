@@ -1,19 +1,17 @@
 
-@if ($percentages ?? '' >= 0 )
+@if ($usersPercentage >= 0 )
 <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>
-    {{number_format($percentages ?? 0, 2)}}%</span>
+    {{$usersPercentage}}%</span>
 
 @else
 <span class="text-warning mr-2"><i class="fa fa-arrow-down"></i>
-    {{number_format($percentages ?? 0, 2)}}%</span>
+    {{$usersPercentage}}%</span>
 @endif
-<form method="POST" }}">
+<form method="POST">
     @csrf
     <div class="custom-flex">
-            @php
-            @endphp
-
-        <select name="since" wire:model="dashboardColumns" class="form-control pt-0" }'>
+          
+        <select name="since" value="" class="form-control pt-0"">
             <option value="last-week" class="">Since Last Week</option>
             <option value="last-month" class="">Since Last Month</option>
             <option value="last-year" class="">Since Last Year</option>

@@ -15,7 +15,10 @@
                 <!-- Card stats -->
                 <div>
                     <div class="row">
-                        @foreach ($dashboardColumn as $dashboardColumn)
+                        @php
+                            var_dump($dashboardColumns);
+                            @endphp
+                        @foreach ($dashboardColumns as $dashboardColumn)
                             <div class="col-xl-3 col-md-6">
                                 <div class="card card-stats">
                                     <!-- Card body -->
@@ -34,26 +37,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        @if ($percentages ?? '' >= 0 )
-                                        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>
-                                            {{number_format($percentages ?? 0, 2)}}%</span>
-                            
-                                        @else
-                                        <span class="text-warning mr-2"><i class="fa fa-arrow-down"></i>
-                                            {{number_format($percentages ?? 0, 2)}}%</span>
-                                        @endif
-                                        <form method="POST" }}">
-                                            @csrf
-                                            <div class="custom-flex">
-                                                <select name="since" wire:model="dashboardColumn" class="form-control pt-0" }'>
-                                                    <option value="last-week" class="">Since Last Week</option>
-                                                    <option value="last-month" class="">Since Last Month</option>
-                                                    <option value="last-year" class="">Since Last Year</option>
-                                                </select>
-                                                <i class="fas fa-chevron-down arrow-down"></i>
                                         
-                                            </div>
-                                        </form>
+                                        @livewire('dashboard-columns')
                                     </div>
                                 </div>
                             

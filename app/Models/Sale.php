@@ -11,20 +11,11 @@ class Sale extends Model
     use HasFactory;
 
 
-    public function calcSalesIncrease(): int
+    public function calcSalesIncrease()
     {
 
-        return CalcPercentages::calcIncrease($this->getSalesLastMonth(), $this->getCurrentSales(),);
+        return CalcPercentages::calcIncrease(CalcPercentages::getLastMonth($this), CalcPercentages::getCurrentMonth($this));
     }
 
-
-    public function getCurrentSales(): int
-    {
-        return CalcPercentages::getCurrentMonth($this) - 1;
-    }
-
-    public function getSalesLastMonth(): int
-    {
-        return CalcPercentages::getLastMonth($this);
-    }
+   
 }

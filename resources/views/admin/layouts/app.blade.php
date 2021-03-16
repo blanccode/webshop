@@ -19,7 +19,6 @@
         <!-- Argon CSS -->
         {{-- <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css')}}" type="text/css"> --}}
         <link rel="stylesheet" href="{{asset('assets/css/argon.css')}}" type="text/css">
-         @livewireStyles
 
         </head>
     @endsection
@@ -56,8 +55,7 @@
             <script src="{{asset('assets/vendor/chart.js/dist/Chart.extension.js')}}"></script>
             <!-- Argon JS -->
             <script src="{{asset('assets/js/argon.min.js')}}"></script>
-            <script src="{{asset('recourses/js/app.js')}}"></script>
-            {{-- <script src="{{asset('assets/js/argon.js')}}"></script> --}}
+            <script src="{{asset('assets/js/dashboard.js')}}"></script>
             <div class="backdrop d-xl-none" data-action="sidenav-unpin" data-target="undefined"></div>
             <div
                 style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: medium none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
@@ -79,7 +77,6 @@
                 name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame"
                 src="https://vars.hotjar.com/box-469cf41adb11dc78be68c1ae7f9457a4.html"></iframe>
 
-@livewireScripts
     </body>
 
 {{-- @endcan --}}

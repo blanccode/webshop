@@ -26,11 +26,9 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->state([
             'created_at' => today()->subDays(8),
         ])->create();
-        User::factory(random_int(1, 400))->state([
-            'created_at' => now()->subMonth(),
-        ])->create();
-        View::factory(20)->create();
-        View::factory(20)->state([
+       
+        View::factory(random_int(1, 400))->create();
+        View::factory(random_int(1, 400))->state([
             'created_at' => now()->subMonth(),
         ])->create();
         View::factory(10)->state([
@@ -42,6 +40,9 @@ class DatabaseSeeder extends Seeder
         Sale::factory(random_int(1, 300))->create();
         Sale::factory(random_int(1, 300))->state([
             'created_at' => now()->subMonth(),
+        ])->create();
+        Sale::factory(10)->state([
+            'created_at' => today()->subDays(8),
         ])->create();
 
         $this->call([

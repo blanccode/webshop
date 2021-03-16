@@ -23,7 +23,7 @@ class View extends Model
         
     }
 
-    public function addAllViews() {
+    public function addAllViews() :int {
         $views = View::all();
 
         $viewCount = 0;
@@ -41,8 +41,8 @@ class View extends Model
     
     public function calcViewsSinceWeak() : int 
     {
-        // return CalcPercentages::calcIncrease(CalcPercentages::getSinceLastWeak($this) , CalcPercentages::getCurrentWeak($this));
-        return 3;
+        return CalcPercentages::calcIncrease(CalcPercentages::getSinceLastWeak($this) , CalcPercentages::getCurrentWeak($this));
+        // return 3;
     }
     
 

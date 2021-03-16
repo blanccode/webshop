@@ -32,24 +32,35 @@ class DashboardController extends Controller
         $this->roleRepository = $roleRepository;
     }
 
-    public function index(Request $request, View $view ,Response $response, Sale $sale)
+    public function index(Request $request, View $view,User $user ,Response $response, Sale $sale, DashboardColumn  $dashboardColumns)
     {
+        // foreach ($users as $user) {
+        //     $user->roles()->attach($roles);
+        // }
+        
+        $roles = $this->roleRepository->all();
+        $admin = $this->userRepository->getAdmin();
+        $users = $this->userRepository->all();
+
         if ($request->input('since') == 'last-week') {
            $viewsSinceWeak = $view->calcViewsSinceWeak();
         }
 
-        $roles = $this->roleRepository->all();
-        $admin = $this->userRepository->getAdmin();
-        $users = $this->userRepository->all();
-        $totalUsers = $this->userRepository->getUserCount();
+        $totalViews = $view->addAllViews();
+        $viewsPercentage = $view->calcViewsIncrease();
 
-        foreach ($users as $user) {
-            $user->roles()->attach($roles);
-        }
+        $usersCount = $this->userRepository->getUserCount();
+        $usersPercentage = $user->calcUsersIncrease();
+        $salesPercentage = $sale->calcSalesIncrease();
+
+        $dashboardColumns = $dashboardColumns->dashboardColumns;
+
+
+        
 
        
 
-        return view('admin.dashboard', compact('admin','users'));
+        return view('admin.dashboard', compact('admin','users', 'usersCount', 'usersPercentage', 'totalViews', 'viewsPercentage', 'dashboardColumns'));
     }
 
     /**

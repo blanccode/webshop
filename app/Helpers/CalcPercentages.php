@@ -10,12 +10,13 @@ class CalcPercentages {
 
 
     public static function calcIncrease($pastNum, $currentNum)
-    {
-        $increase = $currentNum - $pastNum;
+    {   if( isset($pastNum) && isset($currentNum) ) {
+            $increase = $currentNum - $pastNum;
 
-        $increase = $increase / $pastNum * 100;
+            $increase = $increase / $pastNum * 100;
 
-        return number_format($increase, 2);
+            return number_format($increase, 2);
+        }
     }
 
     // public static function calcIncrease($a, $b)

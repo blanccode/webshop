@@ -54,7 +54,7 @@ class User extends Authenticatable
     public function calcUsersIncrease() :int
     {
      
-        return CalcPercentages::calcIncrease($this->getUsersLastMonth(),$this->getCurrentUsers(),);
+        return CalcPercentages::calcIncrease($this->getUsersLastMonth(),$this->getCurrentUsers());
     }
 
   
