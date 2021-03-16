@@ -28,7 +28,7 @@ Route::middleware(['view-counter'])->group(function () {
 
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-        Route::post('/dashboard', [IncreaseCalc::class]);
+        // Route::post('/dashboard', [IncreaseCalc::class]);
         Route::get('/dashboard/users', [DashboardUsersController::class, 'index'])->name('dashboard.users');
         Route::get('/user', function () {
             return view('user.user-index');
